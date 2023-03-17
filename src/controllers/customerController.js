@@ -79,7 +79,7 @@ controller.inicioSesionPost = (req,res)=>{
         console.log('El doctor no se a registrado')
       }
       else{
-        const usuario = fila;
+        console.log(fila);
         if(usuario.Pass==contrasena){
           console.log('Pasale mami');
         }
