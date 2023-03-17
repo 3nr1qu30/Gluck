@@ -24,12 +24,19 @@ const validarFormulario = (e) => {
     console.log(e.target.name);
 }
 
+/* inputs.forEach((input) => {
+    input.addEventListener('keyup', validarFormulario);
+    input.addEventListener('blur', validarFormulario);
+});
+
+*/
+
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario);
     input.addEventListener('blur', validarFormulario);
 });
 
-document.addEventListener('submit', (e) => {
+formulario.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log("abrase alv si solo va a jugar");
 });
