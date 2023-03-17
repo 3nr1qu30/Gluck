@@ -73,17 +73,28 @@ controller.inicioSesion = (req,res)=>{
 };
 controller.inicioSesionPost = (req,res)=>{
   const {UsuarioForm,contrasena} = req.body
-  if(UsuarioForm){
+  if(UsuarioForm.length===8){
     instrucciones.buscarDoctores(UsuarioForm,(err,fila)=>{
-      if(fila==='no existe'){
-        console.log('El doctor no se a registrado')
+    if(fila==='no existe'){
+      console.log('El doctor no se a registrado');
+    }
+    else{
+      if(fila[0].Pass===contrasena){
+        console.log('Pasale mami');
       }
-      else{
-        const usuario = fila;
-        if(usuario.Pass==contrasena){
-          console.log('Pasale mami');
-        }
+    }
+    });
+  }
+  else if(UsuarioForm.length===18){
+    instrucciones.buscarPacientes(UsuarioForm,(err,fila)=>{
+    if(fila==='no existe'){
+      console.log('El paciente no se a registrado');
+    }
+    else{
+      if(fila[0].Pass===contrasena){
+        console.log('Pasale mami');
       }
+    }
     });
   }
 }
