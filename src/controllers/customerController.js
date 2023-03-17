@@ -1,5 +1,6 @@
 const bodyParser = require("body-parser");
 const instrucciones = require('../database/instrucciones');
+const encrypt = require('../helper/handleBcrypt');
 const controller ={};
 
 controller.index = (req, res) => {
@@ -71,32 +72,14 @@ controller.registroDoctorPost = (req,resultado) =>{
 controller.inicioSesion = (req,res)=>{
   res.render('inicioSesion');
 };
+
 controller.inicioSesionPost = (req,res)=>{
   const {UsuarioForm,contrasena} = req.body
-  if(UsuarioForm.length===8){
-    instrucciones.buscarDoctores(UsuarioForm,(err,fila)=>{
-    if(fila==='no existe'){
-      console.log('El doctor no se a registrado');
+  instrucciones.login(UsuarioForm,contrasena,(err,resultado)=>{
+    if(resultado){
+      console.log(resultado)
     }
-    else{
-      if(fila[0].Pass===contrasena){
-        console.log('Pasale mami');
-      }
-    }
-    });
-  }
-  else if(UsuarioForm.length===18){
-    instrucciones.buscarPacientes(UsuarioForm,(err,fila)=>{
-    if(fila==='no existe'){
-      console.log('El paciente no se a registrado');
-    }
-    else{
-      if(fila[0].Pass===contrasena){
-        console.log('Pasale mami');
-      }
-    }
-    });
-  }
-}
+  })
+};
 
 module.exports = controller; 

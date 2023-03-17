@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-
+const encrypt = require('../helper/handleBcrypt');
 const instrucciones = {};
 
 instrucciones.conectar = () => {
@@ -41,7 +41,7 @@ instrucciones.buscarPacientes = (CurpForm, callback) => {
     conexion.end();
   });
 };
-instrucciones.registrarPacientes =(CurpForm,EmailForm,PassForm,NombreForm,ApellidosForm,
+instrucciones.registrarPacientes =async (CurpForm,EmailForm,PassForm,NombreForm,ApellidosForm,
     sexo,EdadForm,tipo,TelefonoForm, callback) =>{
         let sex;
         if(sexo==1){
@@ -53,8 +53,9 @@ instrucciones.registrarPacientes =(CurpForm,EmailForm,PassForm,NombreForm,Apelli
         else if(sexo==3){
             sex="SinAsignar"
         }
+        const PassEn = await encrypt.encrypt(PassForm);
         const conexion = instrucciones.conectar();
-        conexion.query(`INSERT INTO pacientes VALUES('${CurpForm}','${EmailForm}','${PassForm}','${NombreForm}','${ApellidosForm}',
+        conexion.query(`INSERT INTO pacientes VALUES('${CurpForm}','${EmailForm}','${PassEn}','${NombreForm}','${ApellidosForm}',
           '${sex}',${EdadForm},${tipo},'${TelefonoForm}')`, (err,alta)=>{
             if(err){
                 callback(err,null);
@@ -84,7 +85,7 @@ instrucciones.buscarDoctores = (CedulaForm, callback) => {
   });
 };
 
-instrucciones.registrarDoctores = (CedulaForm,EmailForm,PassForm,NombreForm,ApellidosForm,
+instrucciones.registrarDoctores = async (CedulaForm,EmailForm,PassForm,NombreForm,ApellidosForm,
   sexo,CalleForm,NuExForm,ColoniaForm,DelMunForm,CodigoPostalForm,EnFeForm,TelefonoForm,EdadForm,callback) => {
     let sex;
   if(sexo==1){
@@ -96,8 +97,9 @@ instrucciones.registrarDoctores = (CedulaForm,EmailForm,PassForm,NombreForm,Apel
   else if(sexo==3){
     sex="SinAsignar"
   }
+    const PassEn = await encrypt.encrypt(PassForm);
     const conexion = instrucciones.conectar();
-    conexion.query(`INSERT INTO doctores VALUES('${CedulaForm}','${EmailForm}','${PassForm}','${NombreForm}',
+    conexion.query(`INSERT INTO doctores VALUES('${CedulaForm}','${EmailForm}','${PassEn}','${NombreForm}',
     '${ApellidosForm}','${sex}','${CalleForm}','${NuExForm}','${ColoniaForm}','${DelMunForm}',
     ${CodigoPostalForm},'${EnFeForm}','${TelefonoForm}',${EdadForm})`,(err,alta)=>{
       if(err){
@@ -109,6 +111,29 @@ instrucciones.registrarDoctores = (CedulaForm,EmailForm,PassForm,NombreForm,Apel
       }
       conexion.end();
     });
+}
+instrucciones.login = (UsuarioForm, contrasena, callback) => {
+  if (UsuarioForm.length === 8) {
+      instrucciones.buscarDoctores(UsuarioForm, async (err, fila) => {
+     if (fila === 'no existe') {
+        console.log('El doctor no se ha registrado');
+      } else {
+        if (await encrypt.compare(contrasena, fila[0].Pass) === true) {
+            callback(null,'¡Acceso concedido!');
+        }
+      }
+    });
+  } else if (UsuarioForm.length === 18) {
+     instrucciones.buscarPacientes(UsuarioForm, async (err, fila) => {
+      if (fila === 'no existe') {
+        console.log('El paciente no se ha registrado');
+      } else {
+        if (await encrypt.compare(contrasena, fila[0].Pass) === true) {
+          callback(null,'¡Acceso concedido!');
+        }
+      }
+    });
+  }
 }
 
 module.exports = instrucciones;
