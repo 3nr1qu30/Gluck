@@ -8,7 +8,8 @@ instrucciones.conectar = () => {
     user: 'root',
     password: 'n0m3l0',
     database: 'Glucky',
-    port: '3308'
+    port: '3306'
+    //port: '3308'
   });
 
   connection.connect((err) => {
