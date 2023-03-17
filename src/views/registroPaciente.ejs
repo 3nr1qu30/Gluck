@@ -5,31 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Glucky registro</title>
-
-
+    
+    
      <!-- Primary Meta Tags -->
-<meta name="title" content="Glucky Principal">
-<meta name="description" content="Gratuita - Aplicación para gestionar tu diabetes de manera inteligente">
+     <meta name="title" content="Glucky Principal">
+     <meta name="description" content="Gratuita - Aplicación para gestionar tu diabetes de manera inteligente">
+     
+     <!--====== Favicon Icon ======-->
+     <!--====== Favicon Icon ======-->
+     <link
+     rel="shortcut icon"
+     href="https://i.ibb.co/2qbH6y4/730-sin-t-tulo-20221221143952.png"
+     type="image/svg"
+     />
 
-    <!--====== Favicon Icon ======-->
-      <!--====== Favicon Icon ======-->
-      <link
-      rel="shortcut icon"
-      href="https://i.ibb.co/2qbH6y4/730-sin-t-tulo-20221221143952.png"
-      type="image/svg"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    />
-
-    <!-- ===== All CSS files ===== -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/animate.css" />
-    <link rel="stylesheet" href="/css/lineicons.css" />
-    <link rel="stylesheet" href="/css/ud-styles.css" />
-    <link rel="stylesheet" href="/css/RegistroPaciente.css" />
+     <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+     />
+     
+     <!-- ===== All CSS files ===== -->
+     <link rel="stylesheet" href="/css/bootstrap.min.css" />
+     <link rel="stylesheet" href="/css/animate.css" />
+     <link rel="stylesheet" href="/css/lineicons.css" />
+     <link rel="stylesheet" href="/css/ud-styles.css" />
+     <link rel="stylesheet" href="/css/RegistroPaciente.css" />
+     <script src="/validaciones/registroPaciente.js"></script>
   </head>
   <body>
     <!-- ====== Header Start ====== -->
@@ -143,22 +144,20 @@
                           <input 
                               type="text" 
                               placeholder="Nombre" 
-                              required
                               maxlength="50"
                               name="NombreForm"
-                              pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ']{2,25}){2,25}" 
-                              required>
+                              id="nombre"
+                              >
                         </div>
                         <div class="ud-form-group">
                           <label for="email">Apellidos*</label>
                           <input 
                           type="text" 
                           placeholder="Apellidos" 
-                          required
                           name="ApellidosForm"
                           maxlength="60" 
-                          pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ']{2,25})+([ ]{1})+([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ']{2,25})" 
-                          required>
+                          id="apellidos"
+                          >
                         </div>
                         <div class="ud-form-group">
                           <label for="phone">E-mail*</label>
@@ -166,17 +165,17 @@
                           type="email" 
                           placeholder="Ejemplo@gmail.com"  
                           name="EmailForm" 
-                          required>
+                          id="email"
+                          >
                         </div>
                         <div class="ud-form-group">
                           <label for="message">Edad*</label>
                           <input 
                               type="number" 
                               placeholder="Ejemplo (34)" 
-                              required
                               name="EdadForm" 
-                              pattern="[0,9]{2}" 
-                              required>
+                              id="edad"
+                              >
                         </div>
                         <div class="ud-form-group">
                           <label for="message">Teléfono*</label>
@@ -187,8 +186,8 @@
                           name="TelefonoForm" 
                           maxlength="10" 
                           minlength="10" 
-                          pattern="([0-9]{10})" 
-                          required>
+                          id="telefono"
+                          >
                         </div>
                        
                         <div class="ud-form-group">
@@ -197,7 +196,8 @@
                           type="text" 
                           placeholder="Escribe tu clave CURP válida" 
                           name="CurpForm" 
-                          required>
+                          id="curp"
+                          >
                         </div>
       
                         <div class="ud-form-group">
@@ -230,8 +230,8 @@
                               type="password" 
                               name="PassForm" 
                               placeholder=*********** " 
-                              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  
-                              required>
+                              id="password"
+                              >
                         </div>
       
                         <div class="ud-form-group mb-0">
@@ -246,7 +246,6 @@
 
               </div>
               <div class="column2" style="background-color:#bbb;">
-                
                 <h3 class="achetresss">Sea bienvenido a </h3>
                 <br>
                 <a class="navbar-brand" href="/">
