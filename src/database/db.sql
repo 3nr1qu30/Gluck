@@ -1,4 +1,4 @@
-drop database if exists Glucky;
+drop database if exists Glucky
 create database Glucky;
 use Glucky;
 create table pacientes(
