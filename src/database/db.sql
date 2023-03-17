@@ -4,7 +4,7 @@ use Glucky;
 create table pacientes(
 Curp varchar(18) primary key not null,
 Email varchar(70),
-Pass varchar(70),
+Pass varchar(100),
 Nombre varchar(50),
 Apellidos varchar(60),
 Sexo varchar(10),
@@ -14,16 +14,16 @@ Telefono varchar(10));
 create table doctores(
 Cedula varchar(8) primary key not null,
 Email varchar(70),
-Pass varchar(70),
+Pass varchar(100),
 Nombre varchar(50),
 Apellidos varchar(60),
 Sexo varchar(10),
 Calle varchar (40),
+NumeroCa varchar(5),
 Colonia varchar(40),
 Del_o_Muni varchar(40),
 Codigo_Postal int,
-Estado varchar(40),
-Ciudad varchar(40),
+EstadoEntidadFe varchar(40),
 Telefono varchar(10),
 Edad int);
 create table datosmedicos(
