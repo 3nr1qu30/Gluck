@@ -3,7 +3,6 @@ const app = express();
 const path = require('path');
 const morgan = require('morgan');
 const mysql = require('mysql');
-const myConnection = require('express-myconnection');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -15,7 +14,7 @@ app.set('view engine','ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 //importando rutas
-const customerRoutes =require('./routers/customer');
+const customerRoutes =require('./routers/indexR');
 const passport = require('passport');
 
 //peticiones para antes de correr
