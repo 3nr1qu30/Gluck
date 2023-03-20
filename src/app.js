@@ -14,12 +14,11 @@ app.set('view engine','ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 //importando rutas
-const customerRoutes =require('./routers/indexR');
+const indexR =require('./routers/indexR');
 const passport = require('passport');
 
 //peticiones para antes de correr
 app.use(morgan('dev'));
-
 app.use(bodyParser.urlencoded({extended:false}));
 //blibliotecas para el login
 app.use(cookieParser('culotesss'));
@@ -32,12 +31,11 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new passportLocal(function(username,password,done)))
 //archivos estaticos o complementarios
 app.use(express.static(path.join(__dirname,'public')));
 
 //routers
-app.use('/', customerRoutes);
+app.use('/', indexR);
 
 
 //iniciar servidor

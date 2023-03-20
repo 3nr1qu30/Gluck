@@ -3,22 +3,22 @@ const llaves = require('../database/llaves');
 const encrypt = require('../helper/handleBcrypt');
 const controller ={};
 
-controller.index = (req, res) => {
+controller.index = (req, res, next) => {
     res.render('index');
 };
 
-controller.registros = (req,res) =>{
+controller.registros = (req,res, next) =>{
     res.render('registros');
 };
 
-controller.registroPaciente = (req,res) =>{
+controller.registroPaciente = (req,res, next) =>{
     res.render('registroPaciente');
 };
 
-controller.registroDoctor = (req,res) =>{
+controller.registroDoctor = (req,res, next) =>{
     res.render('registroDoctor');
 };
-controller.registroPacientePost = (req,res) =>{
+controller.registroPacientePost = (req,res, next) =>{
   const {NombreForm,ApellidosForm,EmailForm,EdadForm,
     TelefonoForm,CurpForm,sexo,tipo,PassForm} = req.body;
     console.log(CurpForm);
