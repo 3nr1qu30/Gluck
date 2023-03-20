@@ -1,4 +1,4 @@
-const formulario = document.getElementById('formulario'),
+const formulario = document.getElementById('yo')/* ,
 inputs = document.querySelectorAll('#formulario input'),
 nombre = document.getElementById('nomrbe'),
 apellidos = document.getElementById('apellidos'),
@@ -12,9 +12,9 @@ colonia = document.getElementById('colonia'),
 cp = document.getElementById('cp'),
 delegacion = document.getElementById('delegacion'),
 entidad = document.getElementById('entidad'),
-password = document.getElementById('password');
+password = document.getElementById('password'); */
 
-const validarFormulario = (e) => {
+/* const validarFormulario = (e) => {
     console.log(e.target.name);
 }
 
@@ -23,11 +23,12 @@ inputs.forEach((input) => {
     input.addEventListener('blur', validarFormulario);
 });
 
+*/
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log("abrase alv si solo va a jugar");
-});
-
+}); 
+    
 /* const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const nombre = document.getElementById('nombre'),
