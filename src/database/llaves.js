@@ -1,8 +1,8 @@
 const mysql = require('mysql');
 const encrypt = require('../helper/handleBcrypt');
-const instrucciones = {};
+const llaves = {};
 
-instrucciones.conectar = () => {
+llaves.conectar = () => {
   const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -23,8 +23,8 @@ instrucciones.conectar = () => {
   return connection;
 };
 
-instrucciones.buscarPacientes = (CurpForm, callback) => {
-  const conexion = instrucciones.conectar();
+llaves.buscarPacientes = (CurpForm, callback) => {
+  const conexion = llaves.conectar();
   conexion.query(`SELECT * FROM pacientes WHERE Curp ='${CurpForm}'`, (err, fila) => {
     if (err) {
       console.error('Error querying database:', err);
@@ -41,7 +41,7 @@ instrucciones.buscarPacientes = (CurpForm, callback) => {
     conexion.end();
   });
 };
-instrucciones.registrarPacientes =async (CurpForm,EmailForm,PassForm,NombreForm,ApellidosForm,
+llaves.registrarPacientes =async (CurpForm,EmailForm,PassForm,NombreForm,ApellidosForm,
     sexo,EdadForm,tipo,TelefonoForm, callback) =>{
         let sex;
         if(sexo==1){
@@ -54,7 +54,7 @@ instrucciones.registrarPacientes =async (CurpForm,EmailForm,PassForm,NombreForm,
             sex="SinAsignar"
         }
         const PassEn = await encrypt.encrypt(PassForm);
-        const conexion = instrucciones.conectar();
+        const conexion = llaves.conectar();
         conexion.query(`INSERT INTO pacientes VALUES('${CurpForm}','${EmailForm}','${PassEn}','${NombreForm}','${ApellidosForm}',
           '${sex}',${EdadForm},${tipo},'${TelefonoForm}')`, (err,alta)=>{
             if(err){
@@ -66,8 +66,8 @@ instrucciones.registrarPacientes =async (CurpForm,EmailForm,PassForm,NombreForm,
             conexion.end();
           });
     };
-instrucciones.buscarDoctores = (CedulaForm, callback) => {
-  const conexion = instrucciones.conectar();
+llaves.buscarDoctores = (CedulaForm, callback) => {
+  const conexion = llaves.conectar();
   conexion.query(`SELECT * FROM doctores WHERE Cedula ='${CedulaForm}'`, (err, fila) => {
   if (err) {
     console.error('Error en busqueda de la base:', err);
@@ -85,7 +85,7 @@ instrucciones.buscarDoctores = (CedulaForm, callback) => {
   });
 };
 
-instrucciones.registrarDoctores = async (CedulaForm,EmailForm,PassForm,NombreForm,ApellidosForm,
+llaves.registrarDoctores = async (CedulaForm,EmailForm,PassForm,NombreForm,ApellidosForm,
   sexo,CalleForm,NuExForm,ColoniaForm,DelMunForm,CodigoPostalForm,EnFeForm,TelefonoForm,EdadForm,callback) => {
     let sex;
   if(sexo==1){
@@ -98,7 +98,7 @@ instrucciones.registrarDoctores = async (CedulaForm,EmailForm,PassForm,NombreFor
     sex="SinAsignar"
   }
     const PassEn = await encrypt.encrypt(PassForm);
-    const conexion = instrucciones.conectar();
+    const conexion = llaves.conectar();
     conexion.query(`INSERT INTO doctores VALUES('${CedulaForm}','${EmailForm}','${PassEn}','${NombreForm}',
     '${ApellidosForm}','${sex}','${CalleForm}','${NuExForm}','${ColoniaForm}','${DelMunForm}',
     ${CodigoPostalForm},'${EnFeForm}','${TelefonoForm}',${EdadForm})`,(err,alta)=>{
@@ -112,9 +112,9 @@ instrucciones.registrarDoctores = async (CedulaForm,EmailForm,PassForm,NombreFor
       conexion.end();
     });
 }
-instrucciones.login = (UsuarioForm, contrasena, callback) => {
+llaves.login = (UsuarioForm, contrasena, callback) => {
   if (UsuarioForm.length === 8) {
-      instrucciones.buscarDoctores(UsuarioForm, async (err, fila) => {
+      llaves.buscarDoctores(UsuarioForm, async (err, fila) => {
      if (fila === 'no existe') {
         console.log('El doctor no se ha registrado');
       } else {
@@ -124,7 +124,7 @@ instrucciones.login = (UsuarioForm, contrasena, callback) => {
       }
     });
   } else if (UsuarioForm.length === 18) {
-     instrucciones.buscarPacientes(UsuarioForm, async (err, fila) => {
+     llaves.buscarPacientes(UsuarioForm, async (err, fila) => {
       if (fila === 'no existe') {
         console.log('El paciente no se ha registrado');
       } else {
@@ -136,4 +136,4 @@ instrucciones.login = (UsuarioForm, contrasena, callback) => {
   }
 }
 
-module.exports = instrucciones;
+module.exports = llaves;
