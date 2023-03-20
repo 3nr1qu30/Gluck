@@ -4,9 +4,6 @@ const path = require('path');
 const morgan = require('morgan');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const passportLocal = require('passport-local').Strategy;
 
 //configuración
 app.set('port', process.env.PORT || 3000);
@@ -20,17 +17,7 @@ const passport = require('passport');
 //peticiones para antes de correr
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
-//blibliotecas para el login
-app.use(cookieParser('culotesss'));
 
-app.use(session({
-  secret:'culotesss',
-  resave: true,
-  saveUninitialized: true
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
 //archivos estaticos o complementarios
 app.use(express.static(path.join(__dirname,'public')));
 
