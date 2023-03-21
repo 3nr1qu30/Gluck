@@ -16,18 +16,28 @@ password = document.getElementById('password');  */
 
 const expReg = {
     nombre: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+([ ][a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*$/,
-    apellidos: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+([ ][a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*[ ][a-zA-ZáéíóúÁÉÍÓÚñÑ]+([ ][a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*$/
+    apellidos: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+([ ][a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*[ ][a-zA-ZáéíóúÁÉÍÓÚñÑ]+([ ][a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*$/,
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    edad: /^[1-9][0-9]$/,
+    telefono: /^\d{10}$/,
+    cedula: /^\d[0-9]{7}$/,
+    calle: /^\d+\s+([a-zA-Z]+\s)*[a-zA-Z]+$/,
+    numext: /^\d{1,4}[A-Za-z]?$/,
+    colonia: /^[a-zA-Z]+\s?([a-zA-Z]+\s?)*[a-zA-Z]*$/,
+    cp: /^\d{5}$/,
+    delegacion: /^[a-zA-Z]+\s?([a-zA-Z]+\s?)*[a-zA-Z]*$/,
+    entidad: /^(Aguascalientes|Baja California|Baja California Sur|Campeche|Chiapas|Chihuahua|Ciudad de México|Coahuila|Colima|Durango|Estado de México|Guanajuato|Guerrero|Hidalgo|Jalisco|Michoacán|Morelos|Nayarit|Nuevo León|Oaxaca|Puebla|Querétaro|Quintana Roo|San Luis Potosí|Sinaloa|Sonora|Tabasco|Tamaulipas|Tlaxcala|Veracruz|Yucatán|Zacatecas)$/,
+    password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&.#])[A-Za-z\d$@$!%*?&.#]{8,35}$/
 }
 
 const validarFormulario = (e) => {
-    console.log(e.target.name);
     switch (e.target.name){
         case "NombreForm":
-            if(e.target.name === "NombreForm"){
-                console.log(`yo siempre me pasa`);
+            if(e.target.value === ""){
+                console.log(`rellenalo cabron`);
             }
             else{
-
+                console.clear();
             }
         break;
     }
