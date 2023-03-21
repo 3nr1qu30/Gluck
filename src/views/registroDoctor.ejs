@@ -123,7 +123,6 @@
                 
               </div>  
             </div>
-            <!--wtf a ver si ves esto-->
             
 <form action="/Registro/Doctor" method="post" id="formulario">
             <div class="row">
@@ -138,8 +137,7 @@
                       <h6 class="cuaosa" style="text-align: center;">Necesitas una cédula profesional</h6>
                       <br>
 
-                      <!--<form class="ud-contact-form" action="/Registro/Doctor" method="post" id="yo">-->
-                        <div class="ud-form-group">
+                        <div class="ud-form-group" id="grupo_nombre">
                           <label for="fullName">Nombre*</label>
                           <input 
                               placeholder="Nombre" 
@@ -147,7 +145,7 @@
                               name="NombreForm">
                             <p class="input_nombre_error">Introduzca correctamente su nombre</p>
                         </div>
-                        <div class="ud-form-group">
+                        <div class="ud-form-group" id="grupo_apellido">
                           <label for="email">Apellidos*</label>
                           <input 
                           placeholder="Apellidos" 
@@ -155,7 +153,7 @@
                           name="ApellidosForm">
                           <p class="input_apellidos_error">Introduzca correctamente sus apellidos</p>
                         </div>
-                        <div class="ud-form-group">
+                        <div class="ud-form-group" id="grupo_email">
                           <label for="phone">E-mail*</label>
                           <input 
                           placeholder="Ejemplo@gmail.com"  
@@ -163,7 +161,7 @@
                           id="email">
                           <p class="input_email_error">Por favor introduzca un correo valido</p>
                         </div>
-                        <div class="ud-form-group">
+                        <div class="ud-form-group" id="grupo_edad">
                           <label for="message">Edad*</label>
                           <input 
                               placeholder="Ejemplo (34)" 
@@ -171,7 +169,7 @@
                               name="EdadForm" >
                               <p class="input_edad_error">Por favor introduzca una edad válida</p>
                             </div>
-                            <div class="ud-form-group">
+                            <div class="ud-form-group" id="grupo_telefono">
                               <label for="message">Teléfono*</label>
                               <input  
                               placeholder="Ejemplo (5544667788)" 
@@ -181,7 +179,7 @@
                               <p class="input_telefono_error">Número a 10 dígitos</p>
                             </div>
                        
-                        <div class="ud-form-group">
+                        <div class="ud-form-group" id="grupo_cedula">
                           <label for="message" style="font: bolder;">Cédula profesional*</label>
                           <input 
                           placeholder="Escribe tu cédula profesional válida" 
@@ -191,7 +189,7 @@
                           <p class="input_cedula_error">La cédula debe tener 8 dígitos </p>
                         </div>
       
-                        <div class="ud-form-group">
+                        <div class="ud-form-group" id="grupo_sexo">
                           <label for="message">Sexo*</label>
                           <select name="sexo" class="sexo">
                             <option value="">Selecciona tu sexo</option>
@@ -202,7 +200,7 @@
                         </div>
                         
                         <h4 class="ud-contact-form-title">Lugar de contacto</h4>
-                        <div class="ud-form-group">
+                        <div class="ud-form-group" id="grupo_calle">
                           <label for="message">Calle*</label>
                           <input 
                           placeholder="Escribe la Calle de tu consultorio" 
@@ -210,7 +208,7 @@
                           id="calle">
                               <p class="input_calle_error">No puede tener carácteres especiales</p>
                             </div>
-                            <div class="ud-form-group">
+                            <div class="ud-form-group" id="grupo_numext">
                               <label for="message">Número exterior*</label>
                               <input 
                               placeholder="Escribe el número exterior de tu consultorio" 
@@ -218,7 +216,7 @@
                               id="numext">
                               <p class="input_numext_error">Por favor introduzca una edad válida</p>
                             </div>
-                            <div class="ud-form-group">
+                            <div class="ud-form-group" id="grupo_colonia">
                               <label for="message">Colonia*</label>
                               <input 
                               placeholder="Escribe la Colonia de tu consultorio" 
@@ -226,7 +224,7 @@
                               id="colonia">
                               <p class="input_colonia_error">Por favor introduzca una colonia válida</p>
                         </div>
-                        <div class="ud-form-group">
+                        <div class="ud-form-group" id="grupo_cp">
                           <label for="message">Codigo postal*</label>
                           <input 
                               placeholder="Escribe el código postal de tu consultorio" 
@@ -234,7 +232,7 @@
                               id="cp" >
                               <p class="input_cp_error">El código postal solo puede tener 5 dígitos</p>
                         </div>
-                        <div class="ud-form-group">
+                        <div class="ud-form-group" id="grupo_delegacion">
                           <label for="message">Delegación/Municipio*</label>
                           <input 
                               placeholder="Escribe la delegación o municipio de tu consultorio" 
@@ -242,7 +240,7 @@
                               id="delegacion">
                               <p class="input_delegacion_error">La delegación no puede tener números</p>
                         </div>
-                        <div class="ud-form-group">
+                        <div class="ud-form-group" id="grupo_entidad">
                           <label for="message">Entidad federativa*</label>
                           <input 
                               placeholder="Escribe la entidad federativa de tu consultorio" 
@@ -252,7 +250,7 @@
                         </div>
                         <h4 class="ud-contact-form-title">Contraseña</h4>
       
-                        <div class="ud-form-group">
+                        <div class="ud-form-group" id="grupo_password">
                           <label for="message">Contraseña segura*</label>
                           <input 
                               name="PassForm" 
@@ -262,11 +260,11 @@
                         </div>
       
                         <div class="ud-form-group mb-0">
-                          <button type="submit" class="ud-main-btn">
+                          <button type="submit" class="ud-main-btn" id="grupo_enviar">
                             Enviar
                           </button>
+                          <p class="error_enviar">Por favor rellene bien todos los datos</p>
                         </div>
-                      <!--</form>-->
                       <script src="/validaciones/registroDoctor.js"></script>
                     </div>
                   </div>
