@@ -125,7 +125,7 @@
             </div>
             <!--wtf a ver si ves esto-->
             
-<!--<form action="/Registro/Doctor" method="post" id="formulario">-->
+<form action="/Registro/Doctor" method="post" id="formulario">
             <div class="row">
               <div class="column1" style="background-color:rgb(255, 255, 255);">
                 <div class="">
@@ -138,7 +138,7 @@
                       <h6 class="cuaosa" style="text-align: center;">Necesitas una cédula profesional</h6>
                       <br>
 
-                      <form class="ud-contact-form" action="/Registro/Doctor" method="post" id="yo">
+                      <!--<form class="ud-contact-form" action="/Registro/Doctor" method="post" id="yo">-->
                         <div class="ud-form-group">
                           <label for="fullName">Nombre*</label>
                           <input 
@@ -148,6 +148,7 @@
                               maxlength="50"
                               name="NombreForm"
                               pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ']{2,25}){2,25}" >
+                            <p class="input_nombre_error">El nombre solo acepta</p>
                         </div>
                         <div class="ud-form-group">
                           <label for="email">Apellidos*</label>
@@ -276,7 +277,8 @@
                             Enviar
                           </button>
                         </div>
-                      </form>
+                      <!--</form>-->
+                      <script src="/validaciones/registroDoctor.js"></script>
                     </div>
                   </div>
                 </div>

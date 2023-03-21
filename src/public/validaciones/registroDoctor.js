@@ -1,6 +1,6 @@
-const formulario = document.getElementById('yo')/* ,
-inputs = document.querySelectorAll('#formulario input'),
-nombre = document.getElementById('nomrbe'),
+const formulario = document.getElementById('formulario'),
+inputs = document.querySelectorAll('#formulario input')/* ,
+nombre = document.getElementById('nombre'),
 apellidos = document.getElementById('apellidos'),
 email = document.getElementById('email'),
 edad = document.getElementById('edad'),
@@ -12,10 +12,24 @@ colonia = document.getElementById('colonia'),
 cp = document.getElementById('cp'),
 delegacion = document.getElementById('delegacion'),
 entidad = document.getElementById('entidad'),
-password = document.getElementById('password'); */
+password = document.getElementById('password');  */
 
-/* const validarFormulario = (e) => {
+const expReg = {
+    nombre: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+([ ][a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*$/
+}
+
+const validarFormulario = (e) => {
     console.log(e.target.name);
+    switch (e.target.name){
+        case "NombreForm":
+            if(e.target.name === "NombreForm"){
+                console.log(`yo siempre me pasa`);
+            }
+            else{
+
+            }
+        break;
+    }
 }
 
 inputs.forEach((input) => {
@@ -23,7 +37,7 @@ inputs.forEach((input) => {
     input.addEventListener('blur', validarFormulario);
 });
 
-*/
+
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log("abrase alv si solo va a jugar");
