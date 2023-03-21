@@ -143,16 +143,18 @@
                               placeholder="Nombre" 
                               id="nombre"
                               name="NombreForm">
-                            <p class="input_nombre_error">Introduzca correctamente su nombre</p>
+                            <p class="input_nombre_error">Introduzca correctamente su nombre empezando por mayúscula</p>
                         </div>
+
                         <div class="ud-form-group" id="grupo_apellido">
                           <label for="email">Apellidos*</label>
                           <input 
                           placeholder="Apellidos" 
                           id="apellidos"
                           name="ApellidosForm">
-                          <p class="input_apellidos_error">Introduzca correctamente sus apellidos</p>
+                          <p class="input_apellidos_error">Introduzca correctamente sus apellidos empezando por mayúsculas</p>
                         </div>
+
                         <div class="ud-form-group" id="grupo_email">
                           <label for="phone">E-mail*</label>
                           <input 
@@ -161,6 +163,7 @@
                           id="email">
                           <p class="input_email_error">Por favor introduzca un correo valido</p>
                         </div>
+
                         <div class="ud-form-group" id="grupo_edad">
                           <label for="message">Edad*</label>
                           <input 
@@ -169,6 +172,7 @@
                               name="EdadForm" >
                               <p class="input_edad_error">Por favor introduzca una edad válida</p>
                             </div>
+
                             <div class="ud-form-group" id="grupo_telefono">
                               <label for="message">Teléfono*</label>
                               <input  
@@ -208,14 +212,16 @@
                           id="calle">
                               <p class="input_calle_error">No puede tener carácteres especiales</p>
                             </div>
+
                             <div class="ud-form-group" id="grupo_numext">
                               <label for="message">Número exterior*</label>
                               <input 
                               placeholder="Escribe el número exterior de tu consultorio" 
                               name="NuExForm" 
                               id="numext">
-                              <p class="input_numext_error">Por favor introduzca una edad válida</p>
+                              <p class="input_numext_error">Por favor introduzca un número exterior válido</p>
                             </div>
+
                             <div class="ud-form-group" id="grupo_colonia">
                               <label for="message">Colonia*</label>
                               <input 
@@ -224,6 +230,7 @@
                               id="colonia">
                               <p class="input_colonia_error">Por favor introduzca una colonia válida</p>
                         </div>
+
                         <div class="ud-form-group" id="grupo_cp">
                           <label for="message">Codigo postal*</label>
                           <input 
@@ -232,6 +239,7 @@
                               id="cp" >
                               <p class="input_cp_error">El código postal solo puede tener 5 dígitos</p>
                         </div>
+
                         <div class="ud-form-group" id="grupo_delegacion">
                           <label for="message">Delegación/Municipio*</label>
                           <input 
@@ -240,6 +248,7 @@
                               id="delegacion">
                               <p class="input_delegacion_error">La delegación no puede tener números</p>
                         </div>
+
                         <div class="ud-form-group" id="grupo_entidad">
                           <label for="message">Entidad federativa*</label>
                           <input 
@@ -248,6 +257,7 @@
                               id="entidad">
                               <p class="input_entidad_error">Escriba una entidad válida</p>
                         </div>
+
                         <h4 class="ud-contact-form-title">Contraseña</h4>
       
                         <div class="ud-form-group" id="grupo_password">
@@ -259,8 +269,8 @@
                               <p class="input_password_error">La contraseña debe cumplir con 1 mayúscula, 1 número, 1 caracter especial, 8 carácteres totales</p>
                         </div>
       
-                        <div class="ud-form-group mb-0">
-                          <button type="submit" class="ud-main-btn" id="grupo_enviar">
+                        <div class="ud-form-group mb-0" id="grupo_enviar">
+                          <button type="submit" class="ud-main-btn">
                             Enviar
                           </button>
                           <p class="error_enviar">Por favor rellene bien todos los datos</p>
