@@ -1,18 +1,5 @@
 const formulario = document.getElementById('formulario'),
-inputs = document.querySelectorAll('#formulario input')/* ,
-nombre = document.getElementById('nombre'),
-apellidos = document.getElementById('apellidos'),
-email = document.getElementById('email'),
-edad = document.getElementById('edad'),
-telefono = document.getElementById('telefono'),
-cedula = document.getElementById('cedula'),
-calle = document.getElementById('calle'),
-numext = document.getElementById('numext'),
-colonia = document.getElementById('colonia'),
-cp = document.getElementById('cp'),
-delegacion = document.getElementById('delegacion'),
-entidad = document.getElementById('entidad'),
-password = document.getElementById('password');  */
+inputs = document.querySelectorAll('#formulario input');
 
 const expReg = {
     nombre: /^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]{1,}\s?)+$/,
@@ -28,6 +15,23 @@ const expReg = {
     delegacion: /^[a-zA-Z]+\s?([a-zA-Z]+\s?)*[a-zA-Z]*$/,
     entidad: /^(Aguascalientes|Baja California|Baja California Sur|Campeche|Chiapas|Chihuahua|Ciudad de México|CDMX|Coahuila|Colima|Durango|Estado de México|Guanajuato|Guerrero|Hidalgo|Jalisco|Michoacán|Morelos|Nayarit|Nuevo León|Oaxaca|Puebla|Querétaro|Quintana Roo|San Luis Potosí|Sinaloa|Sonora|Tabasco|Tamaulipas|Tlaxcala|Veracruz|Yucatán|Zacatecas)$/,
     password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&.#])[A-Za-z\d$@$!%*?&.#]{8,35}$/
+}
+
+//yo esa
+
+const campos = {
+    nombre: false,
+    apellidos: false,
+    edad: false,
+    telefono: false,
+    cedula: false,
+    calle: false,
+    numext: false,
+    colonia: false,
+    cp: false,
+    delegacion: false,
+    entidad: false,
+    password: false,
 }
 
 const validarFormulario = (e) => {
